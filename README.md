@@ -3,14 +3,14 @@
 ---
 
 
-# 📘 Contact Management API
+#  Contact Management API
 
 A .NET 8 Web API for **user authentication (register/login)** and **personal contact management** using **ASP.NET Core Identity + JWT Authentication**.  
 Each registered user can manage their own contacts securely.
 
 ---
 
-## 🚀 Features
+##  Features
 - User **registration** & **login** with hashed passwords.
 - **JWT Authentication** for protecting endpoints.
 - **Add, view, and manage contacts** for each authenticated user.
@@ -20,7 +20,7 @@ Each registered user can manage their own contacts securely.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 - **ASP.NET Core 8 Web API**
 - **Entity Framework Core**
 - **ASP.NET Core Identity**
@@ -29,7 +29,7 @@ Each registered user can manage their own contacts securely.
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### 1. Prerequisites
 Make sure you have installed:
@@ -102,16 +102,16 @@ dotnet run
 ```
 
 The API will start (by default) at:
-👉 `https://localhost:5127`
+ `https://localhost:5127`
 
 Swagger UI:
-👉 `https://localhost:5127/swagger`
+ `https://localhost:5127/swagger`
 
 ---
 
 ## 📡 API Endpoints
 
-### 🔑 Auth
+###  Auth
 
 | Method | Endpoint             | Description       |
 | ------ | -------------------- | ----------------- |
@@ -123,7 +123,7 @@ Swagger UI:
 
 ---
 
-### 📒 Contacts (Authenticated only)
+###  Contacts (Authenticated only)
 
 | Method | Endpoint             | Description                         |
 | ------ | -------------------- | ----------------------------------- |
