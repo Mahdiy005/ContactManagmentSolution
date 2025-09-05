@@ -182,11 +182,6 @@ docker-compose down
 ### 3. **Update Connection String Section**
 In your `appsettings.json`, explain that **when running in Docker** the connection string should point to `Server=db;...` instead of `(localdb)`.
 
----
-
-✅ After these changes, your README will support **two ways** to run the app:  
-1. **Local run** (`dotnet run` + LocalDB).  
-2. **Dockerized run** (Docker Compose with SQL Server container).  
 
 
 
