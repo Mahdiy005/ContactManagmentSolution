@@ -49,6 +49,7 @@ namespace ContactManagment.Controllers
             // Map back to DTO
             var savedDto = new ContactDTO
             {
+                Id = contactEntity.Id,
                 FirstName = contactEntity.FirstName,
                 LastName = contactEntity.LastName,
                 Email = contactEntity.Email,
@@ -77,6 +78,7 @@ namespace ContactManagment.Controllers
             // Map to DTO
             var contactDto = new ContactDTO
             {
+                Id = contact.Id,
                 FirstName = contact.FirstName,
                 LastName = contact.LastName,
                 Email = contact.Email,
@@ -137,6 +139,7 @@ namespace ContactManagment.Controllers
                 .Take(pageSize)
                 .Select(c => new ContactDTO
                 {
+                    Id = c.Id,
                     FirstName = c.FirstName,
                     LastName = c.LastName,
                     Email = c.Email,

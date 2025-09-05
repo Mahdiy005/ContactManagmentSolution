@@ -45,7 +45,7 @@ namespace ContactManagment.Controllers
 
                 foreach (var er in created.Errors)
                 {
-                    ModelState.AddModelError("Password", er.Description);
+                    ModelState.AddModelError("msg", er.Description);
                 }
             }
             return BadRequest(ApiResponse<string>.FailedResponse("Validaton Error", ModelState.GetErrors()));

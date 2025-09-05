@@ -4,6 +4,8 @@ namespace ContactManagment.DTOs
 {
     public class ContactDTO
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(80)]
         public string FirstName { get; set; }
