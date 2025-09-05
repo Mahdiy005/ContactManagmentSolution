@@ -118,34 +118,8 @@ Swagger UI:
 | POST   | `/api/auth/register` | Register new user |
 | POST   | `/api/auth/login`    | Login and get JWT |
 
-#### Example: Register
 
-```json
-POST /api/auth/register
-{
-  "userName": "john123",
-  "email": "john@example.com",
-  "password": "P@ssword123"
-}
-```
 
-#### Example: Login
-
-```json
-POST /api/auth/login
-{
-  "email": "john@example.com",
-  "password": "P@ssword123"
-}
-```
-
-Response:
-
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
-}
-```
 
 ---
 
@@ -158,20 +132,6 @@ Response:
 | GET    | `/api/contacts/{id}` | Get single contact                  |
 | DELETE | `/api/contacts/{id}` | Delete contact                      |
 
-#### Example: Add Contact
-
-```json
-POST /api/contacts
-Authorization: Bearer <token>
-
-{
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "phoneNumber": "123456789",
-  "email": "jane.doe@example.com",
-  "birthdate": "1995-05-10"
-}
-```
 
 ---
 
@@ -196,8 +156,9 @@ Authorization: Bearer <token>
 * UserId (FK → Users.Id)
 
 ---
-
-## 🐳 Running with Docker
+---
+---
+##  Running with Docker
 
 This project includes a `docker-compose.yml` file to run the API and database in separate containers.
 
@@ -227,16 +188,3 @@ docker-compose down
 ```
 
 ---
-
-## 📜 License
-
-MIT License
-
-```
-
----
-
-✅ Now the README is **organized, consistent, and production-ready**.  
-
-👉 Do you also want me to add a **“Project Structure” section** showing the folder layout (`Controllers/`, `Models/`, `Data/`, etc.) so anyone opening the repo knows where to find things?
-```
