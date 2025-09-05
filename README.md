@@ -1,12 +1,12 @@
 
-#  Contact Management API
+# 📘 Contact Management API
 
 A .NET 8 Web API for **user authentication (register/login)** and **personal contact management** using **ASP.NET Core Identity + JWT Authentication**.  
 Each registered user can manage their own contacts securely.
 
 ---
 
-##  Features
+## 🚀 Features
 - User **registration** & **login** with hashed passwords.
 - **JWT Authentication** for protecting endpoints.
 - **Add, view, and manage contacts** for each authenticated user.
@@ -16,7 +16,7 @@ Each registered user can manage their own contacts securely.
 
 ---
 
-##  Tech Stack
+## 🛠 Tech Stack
 - **ASP.NET Core 8 Web API**
 - **Entity Framework Core**
 - **ASP.NET Core Identity**
@@ -26,7 +26,7 @@ Each registered user can manage their own contacts securely.
 
 ---
 
-##  Installation
+## 📦 Installation
 
 ### Prerequisites
 Make sure you have installed:
@@ -50,15 +50,17 @@ cd ContactManagmentSolution
 dotnet restore
 ```
 
-### 3. Configure database
+### 3. Configure database (Local)
 
-Check `appsettings.json`:
+By default, `appsettings.json` uses LocalDB:
 
 ```json
 "ConnectionStrings": {
   "myQueryString": "Data Source=(localdb)\\ProjectModels;Initial Catalog=ContactDB;Integrated Security=True;Encrypt=False"
 }
 ```
+
+👉 This works when running with `dotnet run` on your local machine.
 
 ### 4. Apply EF Core migrations
 
@@ -77,7 +79,7 @@ dotnet run
 
 ---
 
-##  Running App with Docker
+## 🐳 Running App with Docker
 
 This project includes a `docker-compose.yml` file to run the API and database in separate containers.
 
@@ -87,15 +89,18 @@ This project includes a `docker-compose.yml` file to run the API and database in
 docker-compose up --build
 ```
 
-### 2. Update connection string for Docker
+### 2. Configure database (Docker)
 
-In `appsettings.json` (or via environment variables), use:
+When running in Docker, the API connects to the SQL Server container by **service name (`db`)**:
 
 ```json
 "ConnectionStrings": {
   "myQueryString": "Server=db;Database=ContactDB;User=sa;Password=Your_strong_password123;TrustServerCertificate=True;MultipleActiveResultSets=true"
 }
 ```
+
+👉 This is different from LocalDB.
+👉 Docker Compose automatically creates a private network, so `Server=db` resolves to the SQL Server container.
 
 ### 3. Apply EF migrations inside the container
 
@@ -116,16 +121,34 @@ docker-compose down
 
 ---
 
+## 🔄 Switching Between Local & Docker
+
+To avoid manually changing connection strings, you can use **environment-specific settings**:
+
+* `appsettings.Development.json` → for local run (`dotnet run`)
+* `appsettings.Docker.json` → for Docker run (`docker-compose`)
+
+Example `docker-compose.yml` config:
+
+```yaml
+environment:
+  - DOTNET_ENVIRONMENT=Docker
+```
+
+This tells ASP.NET Core to load `appsettings.Docker.json` automatically when running in Docker.
+
+---
+
 ## 📡 API Endpoints
 
-###  Auth
+### 🔑 Auth
 
 | Method | Endpoint             | Description       |
 | ------ | -------------------- | ----------------- |
 | POST   | `/api/auth/register` | Register new user |
 | POST   | `/api/auth/login`    | Login and get JWT |
 
-###  Contacts (Authenticated only)
+### 📒 Contacts (Authenticated only)
 
 | Method | Endpoint             | Description                         |
 | ------ | -------------------- | ----------------------------------- |
@@ -155,5 +178,7 @@ docker-compose down
 * Email
 * Birthdate
 * UserId (FK → Users.Id)
+
+---
 
 
