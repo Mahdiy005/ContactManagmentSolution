@@ -145,11 +145,50 @@ Swagger UI will be available at:
 
 ---
 
-##  Docker
 
-No Dockerization Added
+
+## 🐳 Running with Docker
+
+This project includes a `docker-compose.yml` file to run the API and database in separate containers.
+
+### 1. Build and start containers
+```bash
+docker-compose up --build
+````
+
+### 2. Access the services
+
+* API: [http://localhost:8080/swagger](http://localhost:8080/swagger)
+* Database: localhost,1433 (SQL Server)
+
+### 3. Apply EF migrations
+
+Run migrations inside the API container:
+
+```bash
+docker-compose run api dotnet ef database update
+```
+
+### 4. Stop containers
+
+```bash
+docker-compose down
+```
+
+
 
 ---
+
+### 3. **Update Connection String Section**
+In your `appsettings.json`, explain that **when running in Docker** the connection string should point to `Server=db;...` instead of `(localdb)`.
+
+---
+
+✅ After these changes, your README will support **two ways** to run the app:  
+1. **Local run** (`dotnet run` + LocalDB).  
+2. **Dockerized run** (Docker Compose with SQL Server container).  
+
+
 
 
 
