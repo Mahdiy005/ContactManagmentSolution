@@ -1,0 +1,18 @@
+# Use official .NET SDK image for building
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy ContactManagment.csproj and restore dependencies
+COPY ContactManagment/ContactManagment.csproj ./ContactManagment/
+RUN dotnet restore ./ContactManagment/ContactManagment.csproj
+
+# Copy the rest of the source and build
+COPY . .
+WORKDIR /src/ContactManagment
+RUN dotnet publish -c Release -o /app --no-restore
+
+# Runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /app .
+ENTRYPOINT ["dotnet", "ContactManagment.dll"]
